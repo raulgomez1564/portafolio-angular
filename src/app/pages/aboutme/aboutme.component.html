@@ -1,0 +1,51 @@
+<div class="experience">
+    <div class="user">
+        <div class="image" style="background-image: url('{{imageSrc}}');"></div>
+        <div *ngIf="authService?.Login?.valueOf()">
+            <input #imgInput hidden="true" type="file" onclick="this.value=null" (change)="imgInputChange($event)"
+                accept="image/*" />
+            <button mat-flat-button color="primary" (click)="imgInput.click()" *ngIf="!imageEdited">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-flat-button color="bassic" (click)="saveImageEdition()" *ngIf="imageEdited">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-flat-button color="warn" (click)="cancelImageEdition()" *ngIf="imageEdited">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="description">
+        <h3 *ngIf="!formEdited">{{defaultName}}</h3>
+        <h1 *ngIf="!formEdited">{{defaultTittle}}</h1>
+        <p *ngIf="!formEdited">{{defaultDescription}}</p>
+
+        <form [formGroup]="form" *ngIf="formEdited && authService?.Login?.valueOf()" >
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Titulo</mat-label>
+                <input matInput formControlName="tittle">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput formControlName="description" cdkTextareaAutosize></textarea>
+            </mat-form-field>
+            <div>
+                <button mat-flat-button color="bassic" (click)="formSend()">
+                    <mat-icon>save</mat-icon>
+                </button>
+                <button mat-flat-button color="warn" (click)="cancelForm()">
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </div>
+        </form>
+        <div>
+            <button mat-raised-button color="primary" (click)="editForm()" *ngIf="!formEdited && authService?.Login?.valueOf()">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

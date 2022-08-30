@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="form">
+
+        <mat-icon>cases</mat-icon>
+        <h1>Login</h1>
+
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+            <mat-form-field appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="user">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput ype="password" formControlName="password">
+            </mat-form-field>
+            <p *ngIf="Password?.errors?.['minlength']" class="error">
+                El password debe ser de 8 o más caracteres.
+            </p>
+            <button mat-raised-button color="primary" (ngSubmit)="onEnviar($event)" [disabled]="!form.valid">
+                Iniciar Sesión
+            </button>
+            <p>
+                {{loginError}}
+            </p>
+        </form>
+
+    </div>
+</div>

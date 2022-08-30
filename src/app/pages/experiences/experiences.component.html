@@ -1,0 +1,21 @@
+<div class="experience">
+    <h1 class="experience-tittle">
+        Experiencia
+    </h1>
+    <div *ngIf="authService?.Login?.valueOf()">
+        <button mat-flat-button color="bassic" (click)="addNewExperience()" *ngIf="!showAddableItem">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-flat-button color="bassic" (click)="cancelNewExperience()" *ngIf="showAddableItem">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+    <app-new-card *ngIf="showAddableItem && authService?.Login?.valueOf()" (cancelEvent)="cancelNewExperience()"
+        (saveEvent)="saveNewExperience($event)" class="showAddableItem">
+    </app-new-card>
+    <app-experience-card *ngFor="let experience of experiences" [id]="experience.id"
+        [defaultSince]="experience.defaultSince" [defaultUntil]="experience.defaultUntil"
+        [defaultName]="experience.defaultName" [defaultTittle]="experience.defaultTittle"
+        [defaultDescription]="experience.defaultDescription" (deleteEvent)="deleteExperience($event)">
+    </app-experience-card>
+</div>

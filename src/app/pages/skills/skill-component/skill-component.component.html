@@ -1,0 +1,42 @@
+<div class="circle" *ngIf="!formEdited">
+    <svg viewBox="0 0 36 36" class="blue">
+        <path class="porcent-bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path class="porcent orange" 
+        attr.stroke-dasharray="{{defaultPorcent}}, 100" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <text x="18" y="20.35">
+            <tspan class="porcent-number" x="18" dy="-0.7em">{{defaultPorcent}}%</tspan>
+            <tspan x="18" dy="1.2em" fill="white">{{defaultDescription}}</tspan>
+        </text>
+    </svg>
+</div>
+<div class="edit" *ngIf="!formEdited && authService?.Login?.valueOf()">
+    <button mat-raised-button color="primary" (click)="editForm()">
+        <mat-icon>edit</mat-icon>
+    </button>
+</div>
+
+<form [formGroup]="form" *ngIf="formEdited && authService?.Login?.valueOf()">
+    <mat-form-field appearance="fill">
+        <mat-label>Porcentaje</mat-label>
+        <input matInput formControlName="porcent">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description">
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="bassic" (click)="formDelete()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-flat-button color="bassic" (click)="formSend()" [disabled]="!form.valid">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button mat-flat-button color="warn" (click)="cancelForm()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+</form>

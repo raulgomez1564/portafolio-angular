@@ -1,0 +1,82 @@
+.card {
+    border-radius: 1%;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 25% 1fr;
+
+    box-shadow: 0px 5px 10px 0px rgba(6, 6, 6, 0.472);
+
+    .tittle {
+        background-color: #252627;
+        color: #bcbcbc;
+        padding: 30px;
+        text-align: center;
+
+        * {
+            margin-bottom: 0px;
+        }
+    }
+
+    .description {
+        padding: 30px;
+        background-color: #444444;
+
+        * {
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #899fe8;
+        }
+
+        div {
+            display: flex;
+            justify-content: end;
+
+            button {
+                align-self: flex-end;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+
+form {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+
+    mat-label, mat-hint {
+        color: rgba(255, 255, 255, 0.616);
+    }
+    mat-form-field{
+        width: 100% !important;
+    }
+
+    .tittle {
+        background-color: #252627;
+        padding: 30px;
+        text-align: center;
+        * {
+            margin-bottom: 0px;
+        }
+    }
+
+    .description {
+        padding: 20px;
+        background-color: #444444;
+
+        display: grid;
+        border-radius: 1%;
+
+        div {
+            display: flex;
+            justify-content: end;
+            margin-bottom: 15px;
+            button {
+                align-self: flex-end;
+            }
+        }
+    }
+}

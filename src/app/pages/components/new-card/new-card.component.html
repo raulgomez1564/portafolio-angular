@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+    <div class="tittle">
+        <mat-form-field appearance="fill">
+            <mat-label>Desde</mat-label>
+            <input matInput [matDatepicker]="pickerDesde" formControlName="since">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerDesde"></mat-datepicker-toggle>
+            <mat-datepicker #pickerDesde></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Hasta</mat-label>
+            <input matInput [matDatepicker]="pickerHasta" formControlName="until">
+            <mat-hint>MM/DD/YYYY (Opcional)</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerHasta"></mat-datepicker-toggle>
+            <mat-datepicker #pickerHasta></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="description">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Titulo</mat-label>
+            <input matInput formControlName="tittle">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="description" cdkTextareaAutosize></textarea>
+        </mat-form-field>
+        <div>
+            <button mat-flat-button color="bassic" (click)="formSend()" [disabled]="!form.valid">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-flat-button color="warn" (click)="cancelEdition()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+    </div>
+</form>

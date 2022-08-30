@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+    <div class="tittle">
+        <mat-form-field appearance="fill">
+            <mat-label>Porcentaje</mat-label>
+            <input matInput formControlName="porcent">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+                <div>
+            <button mat-flat-button color="bassic" (click)="formSend()" [disabled]="!form.valid">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-flat-button color="warn" (click)="cancelEdition()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+    </div>
+</form>

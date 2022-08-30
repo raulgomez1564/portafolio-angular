@@ -1,0 +1,72 @@
+<div class="header">
+
+    <div class="header-logo">
+        <div class="tittle">
+            <button>
+                <img src="assets/APLogo-20-20.png" alt="">
+            </button>
+            <h2>Argentina Programa</h2>
+        </div>
+
+        <div class="loggin">
+            <div *ngIf="!formEdited">
+                <a attr.href="{{defaultFacebook}}">
+                    <mat-icon class="facebook-icon">facebook</mat-icon>
+                </a>
+                <a attr.href="{{defaultInstagram}}">
+                    <img src="assets/instagram_icon.png" class="mat-icon" alt=""
+                        style="background-color: white; border-radius: 50%;">
+                </a>
+                <button mat-raised-button color="primary" (click)="editForm()"
+                    *ngIf="!formEdited && authService?.Login?.valueOf()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </div>
+
+            <form [formGroup]="form" *ngIf="formEdited && authService?.Login?.valueOf()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Facebook</mat-label>
+                    <input matInput formControlName="facebook">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Instagram</mat-label>
+                    <input matInput formControlName="instagram">
+                </mat-form-field>
+                <button mat-flat-button color="bassic" (click)="formSend()">
+                    <mat-icon>save</mat-icon>
+                </button>
+                <button mat-flat-button color="warn" (click)="cancelForm()">
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </form>
+
+            <div>
+                <button mat-raised-button color="primary" *ngIf="!authService?.Login?.valueOf()" (click)="toLogin()">
+                    <mat-icon>login</mat-icon>
+                </button>
+                <button mat-raised-button color="warn" *ngIf="authService?.Login?.valueOf()"
+                    (click)="authService.logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="banner">
+    <div class="image" style="background-image: url('{{imageSrc}}');"></div>
+
+    <div class="edit" *ngIf="authService?.Login?.valueOf()">
+        <input #imgInput hidden="true" type="file" onclick="this.value=null" (change)="imgInputChange($event)"
+            accept="image/*" />
+        <button mat-flat-button color="primary" (click)="imgInput.click()" *ngIf="!imageEdited">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-flat-button color="bassic" (click)="savelEdition()" *ngIf="imageEdited">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button mat-flat-button color="warn" (click)="cancelEdition()" *ngIf="imageEdited">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+</div>

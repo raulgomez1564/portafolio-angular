@@ -1,0 +1,20 @@
+<div class="educacion">
+    <h1 class="tittle">Educación</h1>
+    <div *ngIf="authService?.Login?.valueOf()">
+        <button mat-flat-button color="bassic" (click)="addNewEducation()" *ngIf="!showAddableItem">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-flat-button color="bassic" (click)="cancelNewEducation()" *ngIf="showAddableItem">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+    
+    <app-new-card *ngIf="showAddableItem && authService?.Login?.valueOf()" (cancelEvent)="cancelNewEducation()"
+        (saveEvent)="saveNewEducation($event)" class="showAddableItem">
+    </app-new-card>
+    <app-education-card *ngFor="let education of educations" [id]="education.id"
+        [defaultSince]="education.defaultSince" [defaultUntil]="education.defaultUntil"
+        [defaultName]="education.defaultName" [defaultTittle]="education.defaultTittle"
+        [defaultDescription]="education.defaultDescription" (deleteEvent)="deleteEducation($event)">
+    </app-education-card>
+</div>

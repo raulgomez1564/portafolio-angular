@@ -1,0 +1,21 @@
+.experience {
+    display: grid;
+    gap: 10px;
+
+    padding: 30px;
+    min-height: 150px;
+
+    .experience-tittle {
+        text-transform: uppercase;
+    }
+
+    div {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 15px;
+
+        button {
+            align-self: flex-end;
+        }
+    }
+}

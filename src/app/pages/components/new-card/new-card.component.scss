@@ -1,0 +1,38 @@
+form {
+    background-color: rgba(255, 255, 255, 0.027);
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 20px;
+
+    mat-label, mat-hint {
+        color: rgba(255, 255, 255, 0.616);
+    }
+    mat-form-field{
+        width: 100% !important;
+    }
+
+    .tittle {
+        padding: 30px;
+        text-align: center;
+        * {
+            margin-bottom: 0px;
+        }
+    }
+
+    .description {
+        padding: 40px;
+        background-color: #444444;
+
+        display: grid;
+        border-radius: 1%;
+
+        div {
+            display: flex;
+            justify-content: end;
+            margin-bottom: 15px;
+            button {
+                align-self: flex-end;
+            }
+        }
+    }
+}

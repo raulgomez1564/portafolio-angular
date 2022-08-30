@@ -1,0 +1,80 @@
+.circle {
+    max-width: 30%;
+    min-width: 250px;
+    display: grid;
+    background-image: radial-gradient(at 50%, #6482e389 55%, rgba(8, 8, 8, 0) 45%);
+    border-radius: 50%;
+
+    svg {
+        .porcent-bg {
+            fill: none;
+            // stroke: #eee;
+            stroke-width: 3.8;
+        }
+
+        .porcent {
+            fill: none;
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            animation: progress 1s ease-out forwards;
+
+            &.orange {
+                stroke: #df941d;
+            }
+        }
+
+        text {
+            fill: #dea930;
+            font-family: sans-serif;
+            text-anchor: middle;
+
+            tspan {
+                font-size: 3px;
+            }
+
+            .porcent-number {
+                font-size: 0.3em;
+            }
+        }
+
+        @keyframes progress {
+            0% {
+                stroke-dasharray: 0 100;
+            }
+        }
+    }
+}
+
+.edit {
+    display: flex;
+    justify-content: end;
+
+    button {
+        align-self: flex-end;
+    }
+}
+
+// editable component styles
+form {
+    background-color: rgba(255, 255, 255, 0.027);
+    box-shadow: 0px 5px 10px 0px rgba(6, 6, 6, 0.472);
+    width: 200px;
+    height: 200px;
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    border-radius: 50%;
+
+    mat-label,
+    mat-hint {
+        color: rgba(255, 255, 255, 0.616);
+    }
+
+    mat-form-field {
+        width: 100% !important;
+    }
+
+    * {
+        margin-bottom: 0px;
+    }
+}

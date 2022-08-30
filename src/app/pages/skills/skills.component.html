@@ -1,0 +1,20 @@
+<div class="skills">
+    <h1 class="tittle">Habilidades</h1>
+    <div class="buttons" *ngIf="authService?.Login?.valueOf()">
+        <button mat-flat-button color="bassic" (click)="addNewSkill()" *ngIf="!showAddableItem">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-flat-button color="bassic" (click)="cancelNewSkill()" *ngIf="showAddableItem">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+
+    <app-new-circle *ngIf="showAddableItem && authService?.Login?.valueOf()" (cancelEvent)="cancelNewSkill()"
+        (saveEvent)="saveNewSkill($event)">
+    </app-new-circle>
+    <div class="circles">
+        <app-skill-component *ngFor="let skill of skills" [id]="skill.id" [defaultPorcent]="skill.porcent"
+            [defaultDescription]="skill.description" (deleteEvent)="deleteSkill($event)">
+        </app-skill-component>
+    </div>
+</div>

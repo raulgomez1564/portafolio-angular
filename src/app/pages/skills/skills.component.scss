@@ -1,0 +1,38 @@
+.skills {
+    display: grid;
+    gap: 10px;
+
+    padding: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    min-height: 150px;
+
+    background-image: linear-gradient(225deg, #6482e389 20%, #252627 0%);
+
+    h1.tittle {
+        text-transform: uppercase;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 15px;
+
+        button {
+            align-self: flex-end;
+        }
+    }
+
+    app-new-circle {
+        margin: auto;
+        width: 300px;
+        margin-bottom: 40px;
+    }
+
+    .circles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+}

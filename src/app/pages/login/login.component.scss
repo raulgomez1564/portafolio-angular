@@ -1,0 +1,48 @@
+.container {
+    min-height: 100vh;
+    padding: 50px;
+    box-sizing: border-box;
+   
+    display: grid;
+    justify-items: center;
+    background-color: rgb(27, 27, 27);
+
+    .form {
+        width: max(25%,250px);
+
+        padding: 30px;
+        border-radius: 1%;
+        border: 1px solid rgba(0, 0, 0, 0.157);
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+
+        mat-icon {
+            height: 50px;
+            width: 50px;
+            font-size: 50px;
+            transform: rotate(320deg) rotate3d(1, -1, 0, 0);
+            animation: spin 5s linear infinite;
+        }
+        h1{
+            padding: 20px;
+            border-bottom: 1px solid rgb(182, 182, 182);
+        }
+        button{
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        p{
+            overflow-wrap: anywhere;
+        }
+    }
+}
+
+@keyframes spin {
+    50% {
+        transform: rotate(320deg) rotate3d(1, -1, 0, 90deg)
+    }
+
+    100% {
+        transform: rotate(320deg) rotate3d(1, -1, 0, 0);
+    }
+}

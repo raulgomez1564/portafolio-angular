@@ -1,0 +1,22 @@
+<div class="experience">
+    <h1 class="tittle">Proyectos</h1>
+    <div *ngIf="authService?.Login?.valueOf()">
+        <button mat-flat-button color="bassic" (click)="addNewProject()" *ngIf="!showAddableItem">
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-flat-button color="bassic" (click)="cancelNewProject()" *ngIf="showAddableItem">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+    <div class="app-new-card">
+        <app-new-card *ngIf="showAddableItem && authService?.Login?.valueOf()" (cancelEvent)="cancelNewProject()" (saveEvent)="saveNewProject($event)"
+            class="showAddableItem">
+        </app-new-card>
+    </div>
+    <div class="cards">
+        <app-project-card *ngFor="let project of projects" [id]="project.id" [defaultSince]="project.defaultSince"
+            [defaultUntil]="project.defaultUntil" [defaultName]="project.defaultName"
+            [defaultTittle]="project.defaultTittle" [defaultDescription]="project.defaultDescription"
+            (deleteEvent)="deleteProject($event)"></app-project-card>
+    </div>
+</div>
